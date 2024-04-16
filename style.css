@@ -1,0 +1,86 @@
+/*Clase 08-09 flexBox y media queries*/
+
+/*Selectores de etiqueta*/
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+
+}
+
+header{
+    background-color: blueviolet;
+    height: 10vh;
+    /* Flexbox - Porque en el header? porque queremos que los hijos se predisponen a tener un comportamiento flexible tambien*/
+    /* Todo ordenamiento flexible se hace en el padre, no en la propia caja */
+    display: flex;
+    justify-content: center;  /* Mueve de manera horizontal de un extremo a otro y reparte ambos espacios de igual tamaño */
+    align-items: center;      /* Se desplaza verticalmente hasta encontrar el medio entre arriba y abajo (igual que el justify-content: ;) */
+}
+
+main{
+    height: 80vh; 
+}
+
+footer{
+    background-color: rgb(73, 33, 33);
+    height: 10vh;
+    /* flexbox */
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+/* Selectores de clase */
+.container{
+    display: flex;
+    flex-direction: row; /* Esta propiedad cambia el sentido del eje principal (linea por donde se alinean las cajitas, 
+    por defecto es row)*/
+    justify-content: space-evenly; /* Por defecto 6 valores, los primeros 3 cuando el contenedor hijo es uno solo */
+    /* los que tinene la palabra space delante las cajas las interpreta por separados y tienen espacio entre ellas
+    space-around -evenly -between*/ 
+    align-items: center;
+    height: 100%;
+    background-color: skyblue;
+}
+
+
+.item{
+    width: 250px;
+    height: 250px;
+    border: 2px solid black; /* border: espesor tipoDeLinea colorDeLinea */
+    background-color: lightblue; 
+    /* Configuracion de los números */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+/* Media queries para pantallas mas pequeñas, mediante break points
+    celus hasta 600p, tablet hasta 980p, mas de 980p es pc 
+@media tipo De Medio   Condiciones(hasta)*/
+@media only screen and (max-width: 600px){
+    .container{
+        flex-direction: column;
+        
+    }
+    .item{
+        width: 100px;
+        height: 100px;
+        border:none;
+        background-color: coral;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 980px){
+    .container{
+        background-color: beige;
+        align-content: space-evenly; /* lo que hace es visualizar /inspeccionar cuando tengo filas imprime espacios entre las cajas */
+        flex-wrap: wrap; /* flex-wrap lo que hace es hacer que no se compriman, cuando esta activado se disparan a distintas filas */
+    }
+    .item{
+        width: 150px;
+        height: 150px;
+        background-color: green;
+    }
+}
+
